@@ -17,7 +17,7 @@
 /**
  * renderers/course_renderer.php
  *
- * @package    theme_klass
+ * @package    theme_mbou
  * @copyright  2015 onwards LMSACE Dev Team (http://www.lmsace.com)
  * @author    LMSACE Dev Team , lmsace.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -26,12 +26,12 @@ defined('MOODLE_INTERNAL') || die();
 require_once($CFG->dirroot . "/course/renderer.php");
 
 /**
- * Klass theme course renderer class
+ * mbou theme course renderer class
  *
  * @copyright  2015 onwards LMSACE Dev Team (http://www.lmsace.com)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class theme_klass_core_course_renderer extends core_course_renderer {
+class theme_mbou_core_course_renderer extends core_course_renderer {
 
     /**
      * Create the new course block to display in the frontpage.
@@ -39,7 +39,7 @@ class theme_klass_core_course_renderer extends core_course_renderer {
     public function new_courses() {
         /* New Courses */
         global $CFG, $OUTPUT;
-        $newcourse = get_string('newcourses', 'theme_klass');
+        $newcourse = get_string('newcourses', 'theme_mbou');
         $header = '<div id="frontpage-course-list">
         <h2>'.$newcourse.'</h2>
         <div class="courses frontpage-course-list-all">
@@ -93,7 +93,7 @@ class theme_klass_core_course_renderer extends core_course_renderer {
                 <div class="fp-courseinfo">
                 <h5><a href="'.$courseurl.'">'.$course->fullname.'</a></h5>
                 <div class="readmore"><a href="'.$courseurl.'">'.get_string("readmore",
-                 "theme_klass").'<i class="fa '.$icon.'"></i></a></div>
+                 "theme_mbou").'<i class="fa '.$icon.'"></i></a></div>
                 </div>
                 </div>
                 </div>';
@@ -190,7 +190,7 @@ class theme_klass_core_course_renderer extends core_course_renderer {
                 <div class="fp-courseinfo">
                 <h5><a href="'.$courseurl.'">'.$course->fullname.'</a></h5>
                 <div class="readmore"><a href="'.$courseurl.'">'.get_string("readmore",
-                    "theme_klass").'&nbsp; <i class="fa '.$icon.'"></i></a></div>
+                    "theme_mbou").'&nbsp; <i class="fa '.$icon.'"></i></a></div>
                 </div>
                 </div>
                 </div>';

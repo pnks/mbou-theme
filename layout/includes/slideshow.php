@@ -17,13 +17,13 @@
 /**
  * slideshow.php
  *
- * @package     theme_klass
+ * @package     theme_mbou
  * @copyright   2015 LMSACE Dev Team,lmsace.com
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
-$numberofslides = theme_klass_get_setting('numberofslides');
+$numberofslides = theme_mbou_get_setting('numberofslides');
 
 if ($numberofslides) { ?>
 
@@ -45,14 +45,14 @@ if ($numberofslides) { ?>
         $allcontent = "";
         for($s1 = 1; $s1 <= $numberofslides; $s1++):
             $clstxt2 = ($s1 == "1") ? ' active' : '';
-            $slidecaption = theme_klass_get_setting('slide' . $s1 . 'caption', true);
-            $slideurl = theme_klass_get_setting('slide' . $s1 . 'url');
-            $slideimg = theme_klass_render_slideimg($s1, 'slide' . $s1 . 'image');
+            $slidecaption = theme_mbou_get_setting('slide' . $s1 . 'caption', true);
+            $slideurl = theme_mbou_get_setting('slide' . $s1 . 'url');
+            $slideimg = theme_mbou_render_slideimg($s1, 'slide' . $s1 . 'image');
             $icon = "fa-angle-right";
             if (right_to_left()) {
                 $icon = "fa-angle-left";
             }
-            $readmore = get_string("readmore", "theme_klass");
+            $readmore = get_string("readmore", "theme_mbou");
             $content = html_writer::start_tag('div', array('class' => "carousel-item ".
                 $clstxt2, 'style' => "background-image:url(".$slideimg.")"));
             $content .= html_writer::start_tag('div', array('class' => "carousel-overlay-content container-fluid"));

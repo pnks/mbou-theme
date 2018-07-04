@@ -16,7 +16,7 @@
 /**
  * theme.js
  *
- * @package     theme_klass
+ * @package     theme_mbou
  * @copyright   2015 LMSACE Dev Team,lmsace.com
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

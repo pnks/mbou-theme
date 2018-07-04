@@ -17,7 +17,7 @@
 /**
  * login.php
  *
- * @package    theme_klass
+ * @package    theme_mbou
  * @copyright  2013 Moodle, moodle.org
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -31,6 +31,6 @@ $templatecontext = [
     'bodyattributes' => $bodyattributes
 ];
 
-echo $OUTPUT->render_from_template('theme_klass/login', $templatecontext);
+echo $OUTPUT->render_from_template('theme_mbou/login', $templatecontext);
 echo ($flatnavbar) ? $flatnavbar : "";
 require_once(dirname(__FILE__) .'/includes/footer.php');

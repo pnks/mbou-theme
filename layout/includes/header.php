@@ -17,7 +17,7 @@
 /**
  * header.php
  *
- * @package    theme_klass
+ * @package    theme_mbou
  * @copyright  2015 onwards LMSACE Dev Team (http://www.lmsace.com)
  * @author    LMSACE Dev Team
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -51,7 +51,7 @@ if (! $PAGE->url->compare($surl, URL_MATCH_BASE)) {
 }
 $surl = new moodle_url('/course/search.php');
 $ssearchcourses = get_string('searchcourses');
-$shome = get_string('home', 'theme_klass');
+$shome = get_string('home', 'theme_mbou');
 
 $custom = $OUTPUT->custom_menu();
 
@@ -64,22 +64,22 @@ if ($custom == '') {
 
 // Footer Content.
 $logourlfooter = get_logo_url('footer');
-$footnote = theme_klass_get_setting('footnote', 'format_html');
-$fburl    = theme_klass_get_setting('fburl');
-$pinurl   = theme_klass_get_setting('pinurl');
-$twurl    = theme_klass_get_setting('twurl');
-$gpurl    = theme_klass_get_setting('gpurl');
-$address  = theme_klass_get_setting('address');
-$emailid  = theme_klass_get_setting('emailid');
-$phoneno  = theme_klass_get_setting('phoneno');
-$copyrightfooter = theme_klass_get_setting('copyright_footer');
-$infolink = theme_klass_get_setting('infolink');
-$sinfo = get_string('info', 'theme_klass');
-$scontactus = get_string('contact_us', 'theme_klass');
-$sphone = get_string('phone', 'theme_klass');
-$semail = get_string('email', 'theme_klass');
-$sgetsocial = get_string('get_social', 'theme_klass');
-$infolink = theme_klass_infolink();
+$footnote = theme_mbou_get_setting('footnote', 'format_html');
+$fburl    = theme_mbou_get_setting('fburl');
+$pinurl   = theme_mbou_get_setting('pinurl');
+$twurl    = theme_mbou_get_setting('twurl');
+$gpurl    = theme_mbou_get_setting('gpurl');
+$address  = theme_mbou_get_setting('address');
+$emailid  = theme_mbou_get_setting('emailid');
+$phoneno  = theme_mbou_get_setting('phoneno');
+$copyrightfooter = theme_mbou_get_setting('copyright_footer');
+$infolink = theme_mbou_get_setting('infolink');
+$sinfo = get_string('info', 'theme_mbou');
+$scontactus = get_string('contact_us', 'theme_mbou');
+$sphone = get_string('phone', 'theme_mbou');
+$semail = get_string('email', 'theme_mbou');
+$sgetsocial = get_string('get_social', 'theme_mbou');
+$infolink = theme_mbou_infolink();
 
 
 $templatecontext = [
@@ -117,4 +117,4 @@ $templatecontext = [
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
 $flatnavbar = $OUTPUT->render_from_template('theme_boost/nav-drawer', $templatecontext);
-echo $OUTPUT->render_from_template('theme_klass/header', $templatecontext);
+echo $OUTPUT->render_from_template('theme_mbou/header', $templatecontext);

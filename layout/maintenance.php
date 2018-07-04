@@ -17,7 +17,7 @@
 /**
  * The maintenance layout.
  *
- * @package   theme_klass
+ * @package   theme_mbou
  * @copyright 2015 LMSACE Dev Team,lmsace.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -30,4 +30,4 @@ $templatecontext = [
     'output' => $OUTPUT
 ];
 
-echo $OUTPUT->render_from_template('theme_klass/maintenance', $templatecontext);
+echo $OUTPUT->render_from_template('theme_mbou/maintenance', $templatecontext);

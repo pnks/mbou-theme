@@ -17,14 +17,14 @@
 /**
  * The secure layout.
  *
- * @package   theme_klass
+ * @package   theme_mbou
  * @copyright 2015 LMSACE Dev Team,lmsace.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 // Get the HTML for the settings bits.
-$html = theme_klass_get_html_for_settings($OUTPUT, $PAGE);
+$html = theme_mbou_get_html_for_settings($OUTPUT, $PAGE);
 
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>

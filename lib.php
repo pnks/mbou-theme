@@ -17,7 +17,7 @@
 /**
  * lib.php
  *
- * @package   theme_klass
+ * @package   theme_mbou
  * @copyright 2015 LMSACE Dev Team, lmsace.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $theme
  * @return string $scss.
  */
-function theme_klass_get_pre_scss($theme) {
+function theme_mbou_get_pre_scss($theme) {
     global $CFG;
     $scss = '';
     // Prepend pre-scss.
@@ -36,8 +36,8 @@ function theme_klass_get_pre_scss($theme) {
         $scss .= $theme->settings->scsspre;
     }
     $logo = $theme->setting_file_url('logo', 'logo');
-    $scss .= theme_klass_set_logo($scss, $logo);
-    $scss .= theme_klass_set_fontwww();
+    $scss .= theme_mbou_set_logo($scss, $logo);
+    $scss .= theme_mbou_set_fontwww();
     return $scss;
 }
 
@@ -47,7 +47,7 @@ function theme_klass_get_pre_scss($theme) {
  * @param string $theme
  * @return string
  */
-function theme_klass_get_extra_scss($theme) {
+function theme_mbou_get_extra_scss($theme) {
     return !empty($theme->settings->customcss) ? $theme->settings->customcss : '';
 }
 
@@ -57,11 +57,11 @@ function theme_klass_get_extra_scss($theme) {
  * @param string $theme
  * @return string
  */
-function theme_klass_get_main_scss_content($theme) {
+function theme_mbou_get_main_scss_content($theme) {
     global $CFG;
     $theme = theme_config::load('boost');
     $scss = theme_boost_get_main_scss_content($theme);
-    $themescssfile = $CFG->dirroot.'/theme/klass/scss/preset/theme.scss';
+    $themescssfile = $CFG->dirroot.'/theme/mbou/scss/preset/theme.scss';
     if ( file_exists($themescssfile) ) {
         $scss .= file_get_contents($themescssfile);
     }
@@ -74,9 +74,9 @@ function theme_klass_get_main_scss_content($theme) {
  *
  * @param  moodle_page $page [description]
  */
-function theme_klass_page_init(moodle_page $page) {
+function theme_mbou_page_init(moodle_page $page) {
     $page->requires->jquery();
-    $page->requires->js('/theme/klass/javascript/theme.js');
+    $page->requires->js('/theme/mbou/javascript/theme.js');
 }
 
 /**
@@ -87,18 +87,18 @@ function theme_klass_page_init(moodle_page $page) {
  * @param string $theme
  * @return string
  */
-function theme_klass_process_css($css, $theme) {
+function theme_mbou_process_css($css, $theme) {
     // Set the background image for the logo.
     $logo = $theme->setting_file_url('logo', 'logo');
-    $css = theme_klass_set_logo($css, $logo);
+    $css = theme_mbou_set_logo($css, $logo);
     // Set custom CSS.
     if (!empty($theme->settings->customcss)) {
         $customcss = $theme->settings->customcss;
     } else {
         $customcss = null;
     }
-    $css = theme_klass_set_customcss($css, $customcss);
-    $css = theme_klass_pre_css_set_fontwww($css);
+    $css = theme_mbou_set_customcss($css, $customcss);
+    $css = theme_mbou_pre_css_set_fontwww($css);
     return $css;
 }
 
@@ -109,7 +109,7 @@ function theme_klass_process_css($css, $theme) {
  * @param string $logo The URL of the logo.
  * @return string The parsed CSS
  */
-function theme_klass_set_logo($scss, $logo) {
+function theme_mbou_set_logo($scss, $logo) {
     $tag = '$logo: ';
     $replacement = $logo;
     if (is_null($replacement)) {
@@ -131,10 +131,10 @@ function theme_klass_set_logo($scss, $logo) {
  * @param array $options
  * @return bool
  */
-function theme_klass_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
+function theme_mbou_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
     static $theme;
     if (empty($theme)) {
-        $theme = theme_config::load('klass');
+        $theme = theme_config::load('mbou');
     }
     if ($context->contextlevel == CONTEXT_SYSTEM) {
         if ($filearea === 'logo') {
@@ -142,7 +142,7 @@ function theme_klass_pluginfile($course, $cm, $context, $filearea, $args, $force
         } else if ($filearea === 'footerlogo') {
             return $theme->setting_file_serve('footerlogo', $args, $forcedownload, $options);
         } else if ($filearea === 'style') {
-            theme_klass_serve_css($args[1]);
+            theme_mbou_serve_css($args[1]);
         } else if ($filearea === 'pagebackground') {
             return $theme->setting_file_serve('pagebackground', $args, $forcedownload, $options);
         } else if (preg_match("/slide[1-9][0-9]*image/", $filearea) !== false) {
@@ -161,12 +161,12 @@ function theme_klass_pluginfile($course, $cm, $context, $filearea, $args, $force
  * @param string $filename
  * @return string
  */
-function theme_klass_serve_css($filename) {
+function theme_mbou_serve_css($filename) {
     global $CFG;
     if (!empty($CFG->themedir)) {
-        $thestylepath = $CFG->themedir . '/klass/style/';
+        $thestylepath = $CFG->themedir . '/mbou/style/';
     } else {
-        $thestylepath = $CFG->dirroot . '/theme/klass/style/';
+        $thestylepath = $CFG->dirroot . '/theme/mbou/style/';
     }
     $thesheet = $thestylepath . $filename;
     $etagfile = md5_file($thesheet);
@@ -176,9 +176,9 @@ function theme_klass_serve_css($filename) {
     $ifmodifiedsince = (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) ? $_SERVER['HTTP_IF_MODIFIED_SINCE'] : false);
     $etagheader = (isset($_SERVER['HTTP_IF_NONE_MATCH']) ? trim($_SERVER['HTTP_IF_NONE_MATCH']) : false);
     if ((($ifmodifiedsince) && (strtotime($ifmodifiedsince) == $lastmodified)) || $etagheader == $etagfile) {
-        theme_klass_send_unmodified($lastmodified, $etagfile);
+        theme_mbou_send_unmodified($lastmodified, $etagfile);
     }
-    theme_klass_send_cached_css($thestylepath, $filename, $lastmodified, $etagfile);
+    theme_mbou_send_cached_css($thestylepath, $filename, $lastmodified, $etagfile);
 }
 
 
@@ -188,7 +188,7 @@ function theme_klass_serve_css($filename) {
  * @param  string $lastmodified
  * @param  string $etag
  */
-function theme_klass_send_unmodified($lastmodified, $etag) {
+function theme_mbou_send_unmodified($lastmodified, $etag) {
     $lifetime = 60 * 60 * 24 * 60;
     header('HTTP/1.1 304 Not Modified');
     header('Expires: ' . gmdate('D, d M Y H:i:s', time() + $lifetime) . ' GMT');
@@ -208,7 +208,7 @@ function theme_klass_send_unmodified($lastmodified, $etag) {
  * @param  int $lastmodified
  * @param  string $etag
  */
-function theme_klass_send_cached_css($path, $filename, $lastmodified, $etag) {
+function theme_mbou_send_cached_css($path, $filename, $lastmodified, $etag) {
     global $CFG;
     require_once($CFG->dirroot . '/lib/configonlylib.php');
     // 60 days only - the revision may get incremented quite often.
@@ -236,7 +236,7 @@ function theme_klass_send_cached_css($path, $filename, $lastmodified, $etag) {
  * @param string $customcss The custom CSS to add.
  * @return string The CSS which now contains our custom CSS.
  */
-function theme_klass_set_customcss($css, $customcss) {
+function theme_mbou_set_customcss($css, $customcss) {
     $tag = '[[setting:customcss]]';
     $replacement = $customcss;
     if (is_null($replacement)) {
@@ -259,7 +259,7 @@ function theme_klass_set_customcss($css, $customcss) {
  *      - heading HTML to use for the heading. A logo if one is selected or the default heading.
  *      - footnote HTML to use as a footnote. By default ''.
  */
-function theme_klass_get_html_for_settings(renderer_base $output, moodle_page $page) {
+function theme_mbou_get_html_for_settings(renderer_base $output, moodle_page $page) {
     global $CFG;
     $return = new stdClass;
     $return->navbarclass = '';
@@ -283,15 +283,15 @@ function theme_klass_get_html_for_settings(renderer_base $output, moodle_page $p
  *
  * @return string
  */
-function theme_klass_set_fontwww() {
+function theme_mbou_set_fontwww() {
     global $CFG, $PAGE;
     if (empty($CFG->themewww)) {
         $themewww = $CFG->wwwroot."/theme";
     } else {
         $themewww = $CFG->themewww;
     }
-    $theme = theme_config::load('klass');
-    $fontwww = '$fontwww: "'. $themewww.'/klass/fonts/"'.";\n";
+    $theme = theme_config::load('mbou');
+    $fontwww = '$fontwww: "'. $themewww.'/mbou/fonts/"'.";\n";
     return $fontwww;
 }
 
@@ -300,7 +300,7 @@ function theme_klass_set_fontwww() {
  * @param string $css
  * @return string
  */
-function theme_klass_pre_css_set_fontwww($css) {
+function theme_mbou_pre_css_set_fontwww($css) {
     global $CFG, $PAGE;
     if (empty($CFG->themewww)) {
         $themewww = $CFG->wwwroot."/theme";
@@ -308,8 +308,8 @@ function theme_klass_pre_css_set_fontwww($css) {
         $themewww = $CFG->themewww;
     }
     $tag = '[[setting:fontwww]]';
-    $theme = theme_config::load('klass');
-    $css = str_replace($tag, $themewww.'/klass/fonts/', $css);
+    $theme = theme_config::load('mbou');
+    $css = str_replace($tag, $themewww.'/mbou/fonts/', $css);
     return $css;
 }
 
@@ -327,7 +327,7 @@ if (!function_exists('get_logo_url')) {
         global $OUTPUT;
         static $theme;
         if ( empty($theme)) {
-            $theme = theme_config::load('klass');
+            $theme = theme_config::load('mbou');
         }
         if ($type == "header") {
             $logo = $theme->setting_file_url('logo', 'logo');
@@ -347,13 +347,13 @@ if (!function_exists('get_logo_url')) {
  * @param string $sliname
  * @return image
  */
-function theme_klass_render_slideimg($p, $sliname) {
+function theme_mbou_render_slideimg($p, $sliname) {
     global $PAGE, $OUTPUT;
-    $nos = theme_klass_get_setting('numberofslides');
+    $nos = theme_mbou_get_setting('numberofslides');
     $i = $p % 3;
     $slideimage = $OUTPUT->image_url('home/slide'.$i, 'theme');
     // Get slide image or fallback to default.
-    if (theme_klass_get_setting($sliname)) {
+    if (theme_mbou_get_setting($sliname)) {
         $slideimage = $PAGE->theme->setting_file_url($sliname , $sliname);
     }
     return $slideimage;
@@ -365,12 +365,12 @@ function theme_klass_render_slideimg($p, $sliname) {
  * @param  boolean $format
  * @return string
  */
-function theme_klass_get_setting($setting, $format = false) {
+function theme_mbou_get_setting($setting, $format = false) {
     global $CFG;
     require_once($CFG->dirroot . '/lib/weblib.php');
     static $theme;
     if (empty($theme)) {
-        $theme = theme_config::load('klass');
+        $theme = theme_config::load('mbou');
     }
     if (empty($theme->settings->$setting)) {
         return false;
@@ -404,8 +404,8 @@ if (!function_exists('theme_url')) {
  * Get the infolinks from settings page and display on the footer.
  * @return type|string
  */
-function theme_klass_infolink() {
-    $infolink = theme_klass_get_setting('infolink');
+function theme_mbou_infolink() {
+    $infolink = theme_mbou_get_setting('infolink');
     $content = "";
     $infosettings = explode("\n", $infolink);
     foreach ($infosettings as $key => $settingval) {

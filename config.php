@@ -17,13 +17,13 @@
 /**
  * config.php
  *
- * @package    theme_klass
- * @copyright  2015 LMSACE Dev Team , lmsace.com
+ * @package    theme_mbou
+ * @copyright  2018 MBO Utrecht, 2015 LMSACE Dev Team , lmsace.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die;
 
-$THEME->name = 'klass';
+$THEME->name = 'mbou';
 
 $THEME->doctype = 'html5';
 
@@ -43,18 +43,18 @@ $THEME->editor_sheets = array();
 
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 
-$THEME->csspostprocess = 'theme_klass_process_css';
+$THEME->csspostprocess = 'theme_mbou_process_css';
 
 $THEME->requiredblocks = '';
 
 $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
 
-$THEME->prescsscallback = 'theme_klass_get_pre_scss';
+$THEME->prescsscallback = 'theme_mbou_get_pre_scss';
 
-$THEME->extrascsscallback = 'theme_klass_get_extra_scss';
+$THEME->extrascsscallback = 'theme_mbou_get_extra_scss';
 
 $THEME->scss = function($theme) {
-    return theme_klass_get_main_scss_content($theme);
+    return theme_mbou_get_main_scss_content($theme);
 };
 
 $THEME->layouts = array(

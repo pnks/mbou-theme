@@ -17,7 +17,7 @@
 /**
  * renderers.php
  *
- * @package    theme_klass
+ * @package    theme_mbou
  * @copyright  2015 onwards LMSACE Dev Team (http://www.lmsace.com)
  * @author    LMSACE Dev Team , lmsace.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later

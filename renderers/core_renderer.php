@@ -17,18 +17,18 @@
 /**
  * renderers/core_renderer.php
  *
- * @package    theme_klass
+ * @package    theme_mbou
  * @copyright  2015 onwards LMSACE Dev Team (http://www.lmsace.com)
  * @author    LMSACE Dev Team
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
 /**
- * Klass theme core renderer class
+ * mbou theme core renderer class
  * @copyright  2015 onwards LMSACE Dev Team (http://www.lmsace.com)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class theme_klass_core_renderer extends theme_boost\output\core_renderer {
+class theme_mbou_core_renderer extends theme_boost\output\core_renderer {
     /**
      * Header custom menu renderer.
      *
@@ -45,7 +45,7 @@ class theme_klass_core_renderer extends theme_boost\output\core_renderer {
         $content = '';
         foreach ($menu->get_children() as $item) {
             $context = $item->export_for_template($this);
-            $content .= $this->render_from_template('theme_klass/custom_menu_item', $context);
+            $content .= $this->render_from_template('theme_mbou/custom_menu_item', $context);
         }
         return $content;
     }

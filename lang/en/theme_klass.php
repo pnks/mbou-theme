@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'theme_klass', language 'en'
+ * Strings for component 'theme_mbou', language 'en'
  *
- * @package   theme_klass
+ * @package   theme_mbou
  * @copyright 2015 LMSACE Dev Team, lmsace.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -27,13 +27,13 @@ $string['aboutus'] = 'About Us';
 $string['address'] = 'Address';
 $string['calendar'] = 'Calendar';
 
-$string['choosereadme'] = '<div class="clearfix"><div class="theme_screenshot"><img class=img-polaroid src="klass/pix/screenshot.jpg" /><br/><p></p><h3>Theme Credits</h3><p><h3>Moodle Klass theme</h3><p>This theme is based on the Boost Moodle theme.</p><p>Authors: LMSACE Dev Team<br>Contact: info@lmsace.com<br>Website: <a href="http://www.lmsace.com">www.lmsace.com</a><br></p>';
+$string['choosereadme'] = '<div class="clearfix"><div class="theme_screenshot"><img class=img-polaroid src="mbou/pix/screenshot.jpg" /><br/><p></p><h3>Theme Credits</h3><p><h3>Moodle mbou theme</h3><p>This theme is based on the Boost Moodle theme.</p><p>Authors: LMSACE Dev Team<br>Contact: info@lmsace.com<br>Website: <a href="http://www.lmsace.com">www.lmsace.com</a><br></p>';
 
-$string['configtitle'] = 'Klass';
+$string['configtitle'] = 'MBO Utrecht';
 $string['connectus'] = 'Connect with us';
 $string['contact'] = 'Contact';
 $string['copyright_footer'] = 'Copyright';
-$string['copyright_default'] = 'Copyright &copy; 2017 - Developed by <a href="http://lmsace.com">LMSACE.com</a>. Powered by <a href="https://moodle.org">Moodle</a>';
+$string['copyright_default'] = '';
 $string['customcss'] = 'Custom CSS';
 $string['customcssdesc'] = 'Whatever CSS rules you add to this textarea will be reflected in every page, making for easier customization of this theme.';
 $string['defaultaddress'] = '308 Negra Narrow Lane, Albeeze, New york, 87104';
@@ -101,7 +101,7 @@ $string['phoneno'] = 'Phone No';
 $string['pinurl'] = 'Pinterest';
 $string['pinurl_default'] = 'https://in.pinterest.com/yourpinterestname/';
 $string['pinurldesc'] = 'The Pinterest url of your organisation.';
-$string['pluginname'] = 'Klass';
+$string['pluginname'] = 'mbou';
 $string['readmore'] = 'Read More';
 $string['region-side-post'] = 'Right';
 $string['region-side-pre'] = 'Left';

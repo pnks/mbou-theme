@@ -17,14 +17,14 @@
 /**
  * frontpage.php
  *
- * @package   theme_klass
+ * @package   theme_mbou
  * @copyright 2015 Lmsace Dev Team,lmsace.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die;
 // Get the HTML for the settings bits.
-$html = theme_klass_get_html_for_settings($OUTPUT, $PAGE);
+$html = theme_mbou_get_html_for_settings($OUTPUT, $PAGE);
 
 if (right_to_left()) {
     $regionbsid = 'region-bs-main-and-post';
@@ -52,15 +52,15 @@ require_once(dirname(__FILE__) . '/includes/header.php');  ?>
 <!--Custom theme header-->
 <div class="">
     <?php
-        $toggleslideshow = theme_klass_get_setting('toggleslideshow');
+        $toggleslideshow = theme_mbou_get_setting('toggleslideshow');
     if ($toggleslideshow == 1) {
             require_once(dirname(__FILE__) . '/includes/slideshow.php');
     }
     ?>
 </div>
     <?php
-    $whotitle = theme_klass_get_setting('whoweare_title');
-    $whodesc = theme_klass_get_setting('whoweare_description');
+    $whotitle = theme_mbou_get_setting('whoweare_title');
+    $whodesc = theme_mbou_get_setting('whoweare_description');
     if (!empty($whotitle) || !empty($whodesc)) {
 ?>
 <!--Custom theme slider-->
