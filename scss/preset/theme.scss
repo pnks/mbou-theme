@@ -76,6 +76,42 @@ $url_11: url([[pix:theme|t/collapsed_rtl]]);
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face
+{
+    font-family: "HVDPosterClean";
+    src: url([[setting:fontwww]]hvd_poster_clean-webfont.woff) format('woff');
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    font-family: HVDPosterClean, Arial, Helvetica, sans-serif !important;
+    color: rgb(0, 117, 167);
+}
+
+.header-main .header-main-content
+{
+   background: url([[pix:theme|mboutrecht-header-bg]]);
+   background-size: cover;
+}
+
+#header
+{
+  background: #008ec2 !important;
+}  
+
+.course-content .topics .section .activity .activityinstance a
+{
+  font-family: Arial, Helvetica, sans-serif !important; 
+}
+
+.course-content .topics .section .activity .activityinstance
+{
+  font-family: Arial, Helvetica, sans-serif !important; 
+}
+
+
+
 body {
     &#page-site-index {
         background: $concrete;
