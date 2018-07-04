@@ -1,2 +1,2 @@
-# mbou-theme
-Moodle theme MBO Utrecht
+# klass
+Klass - A free responsive moodle theme developed by LMSACE
