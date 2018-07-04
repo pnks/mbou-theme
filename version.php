@@ -35,4 +35,5 @@ $plugin->requires  = 2018050800;
 $plugin->component = 'theme_mbou';
 $plugin->dependencies = array(
     'theme_klass'  => 2018051900,
+    'theme_boost'  => 2016120500, // This version's depended the component and its require release.
 );

@@ -37,7 +37,12 @@ $THEME->name = 'mbou';
 //////////////////////////////////
 //
 $THEME->doctype = 'html5';
-$THEME->parents = array('klass');
-$THEME->sheets = array('mboutrecht');
-$THEME->parentsheets = array('user_styles');
+$THEME->parents = array('klass','boost');
+$THEME->sheets = array("mboutrecht");
+$THEME->parentsheets = array();
+
+$THEME->rendererfactory = 'theme_overridden_renderer_factory';
+$THEME->scss = function($theme) {
+    return theme_mbou_get_main_scss_content($theme);
+};
 
